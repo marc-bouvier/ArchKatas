@@ -13,7 +13,9 @@
             const response = await fetch("katas.json");
             const kata_json_files = await response.json();
             kata_json_files.forEach(kata_json_file => {
-                document.getElementById("kata-json-files").appendChild(`<li>${kata_json_file}</li>`)
+                const listElement = document.createElement('li')
+                listElement.textContent = kata_json_file
+                document.getElementById("kata-json-files").appendChild(listElement)
             });
         }
 
