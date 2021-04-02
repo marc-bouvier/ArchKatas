@@ -1,9 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
     <title>>ArchKatas</title>
 </head>
+
 <body>
-    
+    <ul id="kata-json-files"></ul>
+    <script>
+        async function fetchJsonData() {
+            const response = await fetch("katas.json");
+            const kata_json_files = await response.json();
+            kata_json_files.forEach(kata_json_file => {
+                document.getElementById("kata-json-files").appendChild(`<li>${kata_json_file}</li>`)
+            });
+        }
+
+
+        fetchJsonData()
+    </script>
 </body>
+
 </html>
